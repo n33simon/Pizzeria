@@ -1,0 +1,19 @@
+{% extends "PizzeriaApp/base.html" %}
+
+{% block content %}
+
+<p> <a href="{% url 'PizzeriaApp:pizza' pizza.id %}">{{pizza}}</a> </p>
+
+<p> Add a new comment</p>
+
+<form action="{% url 'PizzeriaApp:new_comment' pizza.id %}" method='post'>
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button name="submit">Add entry</button>
+
+</form>
+
+{% endblock content %}

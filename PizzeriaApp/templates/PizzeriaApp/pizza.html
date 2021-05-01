@@ -1,0 +1,21 @@
+{% extends "PizzeriaApp/base.html" %}
+
+{% block content %}
+
+<p>Pizzas: {{pizza}}</p>>
+
+<ul>
+
+    {% for topping in toppings %}
+    <li>
+        <p>{{topping.name|linebreaks}}</p>
+    </li>
+
+    {% empty %}
+    <li> There are no toppings listed yet.</li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'PizzeriaApp:new_comment' pizza.id %}">Add New Comment!</a> </p>
+
+{% endblock content %}
